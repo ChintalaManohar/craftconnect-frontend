@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #8B5E3C;
+  --color-primary-hover: #754f32;
+  --color-secondary: #D4A373;
+  --color-secondary-hover: #c7925e;
+  --color-background-warm: #FAF7F2;
+  --color-accent: #6B4226;
+  --color-accent-hover: #54331d;
+  
+  /* Custom warm shades to fix non-standard Tailwind colors used in UI design */
+  --color-gray-150: #EADFD0;
+  --color-gray-155: #E2D6C5;
+  --color-gray-250: #D8CBB6;
+  --color-green-150: #C2F0C2;
+  --color-amber-150: #FCE8B2;
+  --color-blue-150: #C2E0FC;
+  --color-indigo-150: #DAD5FC;
+  --color-red-150: #FAD2D2;
+  
+  --font-sans: 'Poppins', 'Inter', sans-serif;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-background-warm);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Make sure focus outlines are visually distinct for keyboard navigation */
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 1px;
+  }
+  
+  button:focus-visible,
+  a:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  /* Premium global micro-interactions */
+  input,
+  select,
+  textarea,
+  button,
+  a {
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
+  }
+}
+
+body.artisan-profile-incomplete main {
+  margin-top: 40px;
+  transition: margin-top 0.3s ease;
+}
